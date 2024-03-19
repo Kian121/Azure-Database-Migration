@@ -39,4 +39,4 @@ Geo-replication for the Azure SQL Database was set up, with a synchronized repli
 Microsoft Entra ID authentication was activated for the Azure SQL Server, with an Entra admin overseeing user access within the Azure SQL Database. A DB Reader user account was created in Microsoft Entra ID. Using Azure Data Studio with admin credentials, the db_datareader role was assigned to this user for read-only access. We then verified the correct role assignment by accessing the database with the DB Reader's credentials.
 
 Below is an illustration of the methods undertaken during this project:
-![Azure Project Diagram](/Users/kiansemnani/Documents/GitHub/azure-database-migration538/Assets/Azure Project Diagram.png)
+![Azure Project Diagram](Assets/Azure Project Diagram.png)
