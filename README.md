@@ -1,8 +1,3 @@
-Azure Database Migration 
-
-
-Readme - updated 
-
 # Azure Database Migration
 
 ## Introduction
