@@ -10,6 +10,7 @@ Readme - updated
 The aim of this project was to architect and implement a cloud based database on Microsoft azure, implementing geo-replication and failover configurations to provide improved availability and disaster tolerance whilst incorporating Microsoft Entra ID for enhanced security and fine tuned access roles and permissions. 
 
 Below is an illustration highlighting some of the methods undertaken during this project:
+
 ![Azure Project Diagram](Assets/Azure%20Project%20Diagram.png)
 
 
