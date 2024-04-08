@@ -15,6 +15,10 @@ We started by setting up a Windows virtual machine in Microsoft Azure. Connectio
 
 After establishing the connection, MS SQL Server a relational database management system and SQL Server Management Studio used for configuring and managing components in SQL Server were installed on the VM for effective database management. The SQL Server database, known as AdventureWorks, was then restored from a `.bak` file, forming the production database. This included data such as tables, views, and stored procedures.
 
+Selecting appropriate Virtual Machine sizes is crucial for balancing performance requirements and cost efficiency, ensuring the server resources match the workload demands. I selected the Standard B2ms (2 vCPUs, 8 GiB memory) for this project due to its cost-effective balance of processing power and memory, making it ideal for handling our moderate workload efficiently. Its scalability allows for easy adjustment according to changing demands.
+
+Choosing the right SQL Database Pricing Tier is essential to optimise costs while meeting performance, storage, and processing needs. For this project the server-less Gen5, 1 vCore was selected for its auto-scaling and cost efficiency, perfectly matching my project's variable workload without excessive resource allocation.
+
 ## Migration to Azure SQL Database
 
 Using the Azure portal, an Azure SQL Database was created as the target for the AdventureWorks database migration. We configured the login type to SQL login a type of login used to connect to a SQL server instance  and set firewall rules for specific IP inbound connections.
@@ -30,6 +34,22 @@ A secondary development environment was established for testing without affectin
 ## Disaster Recovery Simulation
 
 To simulate data loss, critical data was intentionally removed from the Azure SQL Database. We then used Azure SQL Database Backup to restore the production database to a pre-deletion state. Post-restoration, the database was analysed to confirm the recovery's success.
+
+## SQL Queries for Data Corruption
+
+The following SQL queries are provided for educational/testing purposes to demonstrate data corruption scenarios. 
+
+**WARNING**: Do not run these queries in a production environment or on any valuable data.
+
+### Query 1: Deletes top 100 results from Person.Password
+```sql
+DELETE TOP (100) FROM Person.Password
+```
+
+### Query 2: Adds random data to Person.EmailAddress
+```sql
+INSERT INTO Person.EmailAddress (name, email) VALUES (MD5(RAND()), CONCAT(MD5(RAND()), '@example.com'))
+```
 
 ## Geo-Replication and Failover
 
